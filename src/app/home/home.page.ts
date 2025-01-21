@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,12 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  items: {
+    id: number; name: string; date: string,
+    completed: boolean
+  }[] = [];
+  nextId: number = 1;
+  constructor(public navCtrl: NavController) {
 
+  }
 }
