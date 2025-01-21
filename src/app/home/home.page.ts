@@ -17,4 +17,18 @@ export class HomePage {
   constructor(public navCtrl: NavController) {
 
   }
+
+  addItem(name: string, date: string): void {
+    if (name.trim() && date.trim()) {
+      this.items.push({
+        id: this.nextId++,
+        name: name.trim(),
+        date: date.trim(),
+        completed: false,
+      });
+    }
+    else {
+      console.error('El nombre y la fecha no pueden estar vacíos');
+    }
+  }
 }

@@ -6,10 +6,33 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content padding [fullscreen]="true">
   <h2>Lista</h2>
-  <input #nameInput type="text" placeholder="Nombre" />
-  <input #dateInput type="date" />
+  <input #nameInput type="text" placeholder="Nombre" style="margin: 5px;" />
+  <input #dateInput type="date" style="margin: 5px;" />
 
-  <button>Agregar</button>
+  <button (click)="addItem(nameInput.value, dateInput.value); nameInput.value =''; dateInput.value='';"
+    style="margin: 5px;">Agregar</button>
+
+  <table border="1" style="margin: 5px;">
+    <thead>
+      <tr>
+        <th> ID </th>
+        <th>Nombre</th>
+        <th>Fecha</th>
+        <th>Completado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{item.id}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.date}}</td>
+        <td>
+          <input type="checkbox" [checked]="item.completed">
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </ion-content>
