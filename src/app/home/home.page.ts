@@ -31,4 +31,15 @@ export class HomePage {
       console.error('El nombre y la fecha no pueden estar vacíos');
     }
   }
+
+  toggleCompleted(id: number): void {
+    const item = this.items.find(item => item.id === id);
+    if (item) {
+      item.completed = !item.completed;
+    }
+  }
+
+  removeItem(id: number): void {
+    this.items = this.items.filter(item => item.id !== id);
+  }
 }

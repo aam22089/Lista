@@ -14,7 +14,7 @@
   <button (click)="addItem(nameInput.value, dateInput.value); nameInput.value =''; dateInput.value='';"
     style="margin: 5px;">Agregar</button>
 
-  <table border="1" style="margin: 5px;">
+  <table border="1" style="margin-top: 20px; width: 70%; text-align: left;">
     <thead>
       <tr>
         <th> ID </th>
@@ -30,7 +30,10 @@
         <td>{{item.name}}</td>
         <td>{{item.date}}</td>
         <td>
-          <input type="checkbox" [checked]="item.completed">
+          <input type="checkbox" [checked]="item.completed" (change)="toggleCompleted(item.id)">
+        </td>
+        <td>
+          <button (click)="">Eliminar</button>
         </td>
       </tr>
     </tbody>
