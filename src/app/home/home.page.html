@@ -33,7 +33,7 @@
           <input type="checkbox" [checked]="item.completed" (change)="toggleCompleted(item.id)">
         </td>
         <td>
-          <button (click)="">Eliminar</button>
+          <button (click)="removeItem(item.id)">Eliminar</button>
         </td>
       </tr>
     </tbody>
