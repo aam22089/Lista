@@ -10,32 +10,22 @@ import { NavController } from '@ionic/angular';
 export class HomePage {
 
   items: {
-    id: number; name: string; date: string,
-    completed: boolean
+    id: number; name: string;
   }[] = [];
   nextId: number = 1;
   constructor(public navCtrl: NavController) {
 
   }
 
-  addItem(name: string, date: string): void {
-    if (name.trim() && date.trim()) {
+  addItem(name: string): void {
+    if (name.trim()) {
       this.items.push({
         id: this.nextId++,
         name: name.trim(),
-        date: date.trim(),
-        completed: false,
       });
     }
     else {
       console.error('El nombre y la fecha no pueden estar vacíos');
-    }
-  }
-
-  toggleCompleted(id: number): void {
-    const item = this.items.find(item => item.id === id);
-    if (item) {
-      item.completed = !item.completed;
     }
   }
 

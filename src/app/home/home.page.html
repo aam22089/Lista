@@ -9,18 +9,14 @@
 <ion-content padding [fullscreen]="true">
   <h2>Lista</h2>
   <input #nameInput type="text" placeholder="Nombre" style="margin: 5px;" />
-  <input #dateInput type="date" style="margin: 5px;" />
 
-  <button (click)="addItem(nameInput.value, dateInput.value); nameInput.value =''; dateInput.value='';"
-    style="margin: 5px;">Agregar</button>
+  <button (click)="addItem(nameInput.value); nameInput.value ='';" style="margin: 5px;">Agregar</button>
 
   <table border="1" style="margin-top: 20px; width: 70%; text-align: left;">
     <thead>
       <tr>
         <th> ID </th>
         <th>Nombre</th>
-        <th>Fecha</th>
-        <th>Completado</th>
         <th>Acciones</th>
       </tr>
     </thead>
@@ -28,10 +24,6 @@
       <tr *ngFor="let item of items">
         <td>{{item.id}}</td>
         <td>{{item.name}}</td>
-        <td>{{item.date}}</td>
-        <td>
-          <input type="checkbox" [checked]="item.completed" (change)="toggleCompleted(item.id)">
-        </td>
         <td>
           <button (click)="removeItem(item.id)">Eliminar</button>
         </td>
